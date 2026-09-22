@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpaceFarm | Horizon 2080</title>
+  <style>
+    :root {
+      --bg: #050b14;
+      --bg-2: #0a1522;
+      --panel: rgba(12, 24, 34, 0.82);
+      --panel-strong: rgba(18, 36, 49, 0.96);
+      --primary: #58f0c3;
+      --primary-2: #7cc7ff;
+      --accent: #f4d35e;
+      --text: #edf7ff;
+      --muted: #b7d4e7;
+      --line: rgba(124, 199, 255, 0.22);
+      --shadow: rgba(0, 0, 0, 0.4);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(88, 240, 195, 0.14), transparent 20%),
+        radial-gradient(circle at 80% 15%, rgba(124, 199, 255, 0.12), transparent 22%),
+        radial-gradient(circle at 50% 90%, rgba(244, 211, 94, 0.08), transparent 20%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1.2px),
+        radial-gradient(circle, rgba(124,199,255,0.5) 1px, transparent 1.5px);
+      background-size: 180px 180px;
+      background-position: 0 0, 90px 70px;
+      opacity: 0.32;
+      pointer-events: none;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 11, 20, 0.8);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(88, 240, 195, 0.35));
+    }
+
+    .brand-dot {
+      display: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item > a,
+    .nav-item > button {
+      color: var(--muted);
+      background: transparent;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      padding: 12px 14px;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+
+    .nav-item > a:hover,
+    .nav-item > button:hover,
+    .nav-item:hover > button {
+      color: var(--text);
+      background: rgba(124, 199, 255, 0.08);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      min-width: 220px;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 18px 40px var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: 0.2s ease;
+      padding: 10px;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 10px;
+      color: var(--text);
+      background: transparent;
+    }
+
+    .dropdown a:hover {
+      background: rgba(88, 240, 195, 0.08);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #041b14;
+      font-weight: bold;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      cursor: pointer;
+    }
+
+   .hero {
+      padding: 90px 0 60px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      padding: 20px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(88, 240, 195, 0.08);
+      color: var(--primary);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.7rem, 6vw, 5.2rem);
+      line-height: 1.04;
+      letter-spacing: -2px;
+    }
+
+    .highlight {
+      color: var(--primary);
+      text-shadow: 0 0 20px rgba(88, 240, 195, 0.4);
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 26px 0 30px;
+    }
+
+    .project-visual {
+      float: right;
+      width: min(220px, 34vw);
+      max-width: 260px;
+      margin: 0 0 20px 28px;
+      display: block;
+      filter: drop-shadow(0 0 18px rgba(88, 240, 195, 0.28));
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      clear: both;
+    }
+
+    .cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #031a15;
+      font-weight: bold;
+      border-radius: 999px;
+      padding: 15px 24px;
+      box-shadow: 0 12px 28px rgba(88, 240, 195, 0.15);
+    }
+
+    .secondary-btn {
+      display: inline-block;
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 15px 24px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(17, 35, 46, 0.92), rgba(8, 18, 27, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 28px 60px var(--shadow);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(88, 240, 195, 0.08), transparent 40%, rgba(124, 199, 255, 0.08));
+      pointer-events: none;
+    }
+
+    .panel-top {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(88,240,195,0.2);
+      background: rgba(88,240,195,0.08);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+    }
+
+ 
+
+/*
+  
+    .features {
+      padding: 20px 0 50px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(12, 23, 32, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px 22px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+*/
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="brand-logo" src="image/image-removebg-preview.png" alt="Logo SpaceFarm" />
+        <span>SpaceFarm</span>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#accueil">Accueil</a></li>
+        <li class="nav-item">
+          <button type="button">Plateforme ▾</button>
+          <div class="dropdown">
+            <a href="#">Etage 1</a>
+            <a href="#">Etage 2</a>
+            <a href="#">Etage 3</a>
+            <a href="#">Etage 4</a>
+            <a href="#">Etage 5</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="#mission">Mission</a></li>
+        <li class="nav-item"><a href="#services">Services</a></li>
+      </ul>
+
+      <button class="nav-cta">Connexion</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="accueil">
+      <div class="hero-copy">
+        <div class="eyebrow">Projet ESA</div>
+        <h1>Horizon <span class="highlight">2080</span></h1>
+        <h3>Description du projet</h3>
+        <img class="project-visual" src="image/image-removebg-preview.png" alt="Logo SpaceFarm" />
+        <p>
+          SpaceFarm est la brique matérielle et IoT chargée d'assurer la culture et la production
+          végétale en circuit fermé au sein du vaisseau. Elle remplace l'agriculture traditionnelle
+          par un système hydroponique vertical contrôlé par des microcontrôleurs (Arduino, ESP32,
+          Raspberry Pi) afin de garantir la croissance optimale des plantes sans intervention humaine constante.
+        </p>
+        <div class="cta-row">
+          <a href="#services" class="cta">Découvrir</a>
+          <a href="#mission" class="secondary-btn">En savoir plus</a>
+        </div>
+      </div>
+
+      
+
+        
+    </section>
+
+    <section class="features" id="services">
+      <article class="card">
+        <h2>Objectif</h2>
+        <p>Créer une première impression claire, moderne et adaptée à un système de culture en environnement extrême.</p>
+      </article>
+      <article class="card" id="mission">
+        <h2>Valeurs</h2>
+        <p>Autonomie, optimisation de ressources, surveillance intelligente et durabilité pour chaque plante.</p>
+      </article>
+      <article class="card">
+        <h2>Services</h2>
+        <p>Supervision de l’eau, du pH, de la luminosité, de l’air et de la croissance des végétaux en temps réel.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
