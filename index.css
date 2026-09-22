@@ -202,7 +202,12 @@
 
     .highlight {
       color: var(--primary);
-      text-shadow: 0 0 20px rgba(88, 240, 195, 0.4);
+      text-shadow: 0 0 20px rgba(88, 240, 195, 0.55);
+    }
+
+    .highlight-alt {
+      color: var(--primary-2);
+      text-shadow: 0 0 20px rgba(124, 199, 255, 0.7);
     }
 
     .hero-copy p {
@@ -291,7 +296,7 @@
 
  
 
-/*
+
   
     .features {
       padding: 20px 0 50px;
@@ -319,4 +324,93 @@
       color: var(--muted);
       line-height: 1.7;
     }
-*/
+/* Page de Connexion */
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .auth-wrapper {
+      width: min(100%, 430px);
+    }
+
+    .auth-card {
+      background: rgba(12, 24, 34, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+      padding: 30px 26px;
+      backdrop-filter: blur(12px);
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .auth-header h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin: 16px 0 0;
+      letter-spacing: -1px;
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .field input {
+      width: 100%;
+      background: rgba(7, 16, 24, 0.7);
+      border: 1px solid rgba(124, 199, 255, 0.25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field input:focus {
+      border-color: rgba(88, 240, 195, 0.8);
+      box-shadow: 0 0 0 3px rgba(88, 240, 195, 0.12);
+    }
+
+    .field input::placeholder {
+      color: rgba(183, 212, 231, 0.7);
+    }
+
+    .auth-submit {
+      width: 100%;
+      margin-top: 8px;
+      border: none;
+      padding: 15px 18px;
+      font-size: 1rem;
+    }
+
+    .auth-link {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .auth-link a {
+      color: var(--primary-2);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .auth-link a:hover {
+      text-decoration: underline;
+    }
