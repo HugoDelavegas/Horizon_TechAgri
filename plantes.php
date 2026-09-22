@@ -282,7 +282,7 @@ function formatNumber($value, int $decimals = 1): string
 
 <header class="header">
     <div class="header-content">
-        <a href="index.php">Retour à l'accueil</a>
+        <a href="index.html">Retour à l'accueil</a>
         <h1>Encyclopédie des plantes</h1>
         <p class="subtitle">
             Découvrez les espèces cultivables à bord du vaisseau :
