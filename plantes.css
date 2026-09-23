@@ -203,13 +203,6 @@ button:hover {
     color: #9aa9bd;
 }
 
-.footer {
-    text-align: center;
-    color: #66758c;
-    font-size: 13px;
-    margin-top: 40px;
-}
-
 /*Page Etages*/
 .etage-nav {
     display: flex;

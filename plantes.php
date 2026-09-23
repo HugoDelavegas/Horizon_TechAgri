@@ -1,7 +1,6 @@
 <?php
 require_once 'db.php';
 
-// Recherche et filtre par catégorie
 $recherche = trim($_GET['recherche'] ?? '');
 $categorie = trim($_GET['categorie'] ?? '');
 
@@ -69,7 +68,7 @@ function formatNumber($value, int $decimals = 1): string
         <a href="index.html">Retour à l'accueil</a>
         <h1>Encyclopédie des plantes</h1>
         <p class="subtitle">
-            Découvrez les espèces cultivables à bord du vaisseau :
+            Regroupe les espèces cultivables à bord du vaisseau :
             croissance, température, humidité, pH, consommation d'eau et besoins en CO₂.
         </p>
     </div>
@@ -157,7 +156,7 @@ function formatNumber($value, int $decimals = 1): string
                             <span class="detail-label">Température</span>
                             <span class="detail-value">
                                 <?= formatNumber($plante['temperature_min']) ?> °C
-                                —
+                                -
                                 <?= formatNumber($plante['temperature_max']) ?> °C
                             </span>
                         </div>
@@ -166,7 +165,7 @@ function formatNumber($value, int $decimals = 1): string
                             <span class="detail-label">Humidité</span>
                             <span class="detail-value">
                                 <?= formatNumber($plante['humidite_min'], 0) ?> %
-                                —
+                                -
                                 <?= formatNumber($plante['humidite_max'], 0) ?> %
                             </span>
                         </div>
@@ -175,7 +174,7 @@ function formatNumber($value, int $decimals = 1): string
                             <span class="detail-label">pH</span>
                             <span class="detail-value">
                                 <?= formatNumber($plante['ph_min']) ?>
-                                —
+                                -
                                 <?= formatNumber($plante['ph_max']) ?>
                             </span>
                         </div>
@@ -214,10 +213,6 @@ function formatNumber($value, int $decimals = 1): string
         </div>
 
     <?php endif; ?>
-
-    <div class="footer">
-        SpaceFarm — Encyclopédie botanique du vaisseau
-    </div>
 
 </main>
 
