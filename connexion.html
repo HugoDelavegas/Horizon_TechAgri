@@ -4,21 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connexion</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body class="auth-page">
-<main class="container">
-  <section class="auth-section">
-    <h1>Connexion sur la plateforme</h1>
-    <form action="connexion.html" method="post" class="auth-form">
-      <label for="username">Nom d'utilisateur :</label>
-      <input type="text" id="username" name="username" required>
+  <main class="auth-shell">
+    <section class="auth-panel">
+      <h1 class="auth-header">Connexion sur la <span class="highlight-alt">plateforme</span></h1>
 
-      <label for="password">Mot de passe :</label>
-      <input type="password" id="password" name="password" required>
+      <form action="#" method="post" class="auth-form">
+        <div class="field">
+          <label for="username">Nom d'utilisateur :</label>
+          <input type="text" id="username" name="username" required />
+        </div>
 
-      <button type="submit">Connexion</button>
-    </form>
-  </section>
+        <div class="field">
+          <label for="password">Mot de passe :</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <button type="submit" class="auth-submit"><a href="gestionnaire.html">Connexion</a></button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
