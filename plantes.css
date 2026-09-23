@@ -12,8 +12,8 @@ body {
 .header {
     padding: 42px 20px 55px;
     background:
-        radial-gradient(circle at 20% 20%, rgba(70, 120, 255, .20), transparent 30%),
-        radial-gradient(circle at 80% 10%, rgba(60, 220, 170, .15), transparent 25%),
+        radial-gradient(circle at 20% 20%, #10ffbb2f, transparent 30%),
+        radial-gradient(circle at 80% 10%, #10ffbb2f, transparent 25%),
         #111b2e;
     border-bottom: 1px solid #26344c;
 }
@@ -83,13 +83,9 @@ button {
     width: auto;
     min-width: 110px;
     cursor: pointer;
-    background: #274a8a;
-    border-color: #3c66ad;
+    color: black;
+    background: #58f0c3;
     font-weight: bold;
-}
-
-button:hover {
-    background: #315da5;
 }
 
 .stats {
@@ -144,8 +140,8 @@ button:hover {
     display: inline-block;
     padding: 5px 9px;
     border-radius: 999px;
-    background: #1b2d49;
-    color: #9fc1ff;
+    background: rgba(88, 240, 195, 0.08);
+    color: #58f0c3;
     font-size: 12px;
     margin-bottom: 12px;
 }
