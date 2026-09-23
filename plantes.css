@@ -33,6 +33,14 @@
             margin-bottom: 15px;
         }
 
+        a {
+            width: auto;
+            min-width: 110px;
+            cursor: pointer;
+            color: whitesmoke;
+            text-decoration:none;
+        }
+
         h1 {
             margin: 0 0 12px;
             font-size: clamp(32px, 5vw, 54px);
