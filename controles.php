@@ -135,7 +135,7 @@ function h($value): string
 
         <div class="control-actions">
             <button type="submit">Appliquer</button>
-            <a href="etage.php?numero=<?= h($numero) ?>">Annuler</a>
+            <a href="etages.php?numero=<?= h($numero) ?>">Annuler</a>
         </div>
 
     </form>
