@@ -73,7 +73,7 @@ function h($value): string
 
 <header class="header">
     <div class="header-content">
-        <a href="etage.php?numero=<?= h($numero) ?>">Retour à l'étage <?= h($numero) ?></a>
+        <a href="etages.php?numero=<?= h($numero) ?>">Retour à l'étage <?= h($numero) ?></a>
         <h1>Contrôles — Étage <?= h($numero) ?> — <?= h($noms_etages[$numero]) ?></h1>
         <p class="subtitle">Ajustement des consignes environnementales.</p>
     </div>
