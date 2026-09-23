@@ -27,7 +27,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([':numero' => $numero]);
 $plantes = $stmt->fetchAll();
 
-// Bornes réelles de l'étage (min/max observés parmi les plantes du groupe)
 $bornes = [
     'temperature_min' => null,
     'temperature_max' => null,
@@ -78,7 +77,7 @@ function formatNumber($value, int $decimals = 1): string
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étage <?= h($numero) ?> — <?= h($noms_etages[$numero]) ?> — SpaceFarm</title>
+    <title>Étage <?= h($numero) ?> — <?= h($noms_etages[$numero]) ?> - SpaceFarm</title>
     <link rel="stylesheet" href="plantes.css">
 </head>
 
@@ -86,10 +85,10 @@ function formatNumber($value, int $decimals = 1): string
 
 <header class="header">
     <div class="header-content">
-        <a href="plantes.php">Retour à l'encyclopédie</a>
-        <h1>Étage <?= h($numero) ?> — <?= h($noms_etages[$numero]) ?></h1>
+        <a href="index.html">Retour à l'accueil</a>
+        <h1>Étage <?= h($numero) ?> - <?= h($noms_etages[$numero]) ?></h1>
         <p class="subtitle">
-            Répartition calculée automatiquement selon la température moyenne des espèces.
+            Répartition selon la température moyenne des espèces
         </p>
 
         <nav class="etage-nav" style="margin-top: 1rem;">
@@ -98,10 +97,11 @@ function formatNumber($value, int $decimals = 1): string
                     Étage <?= $i ?>
                 </a>
             <?php endfor; ?>
-        </nav>
+        
         <a href="controles.php?numero=<?= $numero ?>" class="etage-pill etage-control">
-        Contrôles
+        Contrôles systèmes
         </a>
+        </nav>
     </div>
 </header>
 
@@ -227,10 +227,6 @@ function formatNumber($value, int $decimals = 1): string
         </div>
 
     <?php endif; ?>
-
-    <div class="footer">
-        SpaceFarm — Étage <?= h($numero) ?> / 5
-    </div>
 
 </main>
 
