@@ -99,8 +99,8 @@ function formatNumber($value, int $decimals = 1): string
                 </a>
             <?php endfor; ?>
         </nav>
-        <a href="controle.php?numero=<?= $numero ?>" class="etage-pill etage-control">
-         ⚙️ Contrôles
+        <a href="controles.php?numero=<?= $numero ?>" class="etage-pill etage-control">
+        Contrôles
         </a>
     </div>
 </header>
