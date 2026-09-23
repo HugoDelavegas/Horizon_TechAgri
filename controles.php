@@ -31,7 +31,6 @@ $noms_etages = [
     4 => 'Zone chaude modérée', 5 => 'Zone chaude',
 ];
 
-// Valeurs de consigne "actuelles" — simulées au milieu des plages tolérées
 $consigne_temp = round(($bornes['temp_min'] + $bornes['temp_max']) / 2, 1);
 $consigne_hum  = round(($bornes['hum_min'] + $bornes['hum_max']) / 2);
 $consigne_co2  = round(($bornes['co2_min'] + $bornes['co2_max']) / 2);
@@ -39,8 +38,7 @@ $consigne_eau  = round($bornes['eau_moy'], 2);
 
 $message = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Non fonctionnel : rien n'est persisté, c'est une maquette.
-    $message = "Consignes mises à jour (simulation — non enregistré en base).";
+    $message = "Consignes mises à jour (simulation - non enregistré en base).";
 }
 
 function h($value): string
@@ -53,7 +51,7 @@ function h($value): string
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrôles — Étage <?= h($numero) ?> — SpaceFarm</title>
+    <title>Contrôles - Étage <?= h($numero) ?> - SpaceFarm</title>
     <link rel="stylesheet" href="plantes.css">
     <style>
         .control-form { display: flex; flex-direction: column; gap: 1.5rem; max-width: 480px; margin: 2rem 0; }
@@ -74,8 +72,8 @@ function h($value): string
 <header class="header">
     <div class="header-content">
         <a href="etages.php?numero=<?= h($numero) ?>">Retour à l'étage <?= h($numero) ?></a>
-        <h1>Contrôles — Étage <?= h($numero) ?> — <?= h($noms_etages[$numero]) ?></h1>
-        <p class="subtitle">Ajustement des consignes environnementales.</p>
+        <h1>Contrôles - Étage <?= h($numero) ?> - <?= h($noms_etages[$numero]) ?></h1>
+        <p class="subtitle">Ajustement des consignes environnementales</p>
     </div>
 </header>
 
@@ -133,7 +131,7 @@ function h($value): string
 
         <div class="control-actions">
             <button type="submit">Appliquer</button>
-            <a href="etages.php?numero=<?= h($numero) ?>">Annuler</a>
+            <button href="etages.php?numero=<?= h($numero) ?>">Annuler</button>
         </div>
 
     </form>
