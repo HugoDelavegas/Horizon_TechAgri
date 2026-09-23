@@ -81,8 +81,6 @@ function h($value): string
 
 <main class="container">
 
-    <span class="badge-fictif">⚠️ Maquette — les réglages ne sont pas encore enregistrés en base</span>
-
     <?php if ($message): ?>
         <div class="stat"><span><?= h($message) ?></span></div>
     <?php endif; ?>
