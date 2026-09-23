@@ -92,13 +92,16 @@ function formatNumber($value, int $decimals = 1): string
             Répartition calculée automatiquement selon la température moyenne des espèces.
         </p>
 
-        <nav class="toolbar" style="margin-top: 1rem;">
+        <nav class="etage-nav" style="margin-top: 1rem;">
             <?php for ($i = 1; $i <= 5; $i++): ?>
-                <a href="?numero=<?= $i ?>" <?= $i === $numero ? 'style="font-weight:bold;text-decoration:underline;"' : '' ?>>
+                <a href="?numero=<?= $i ?>" class="etage-pill <?= $i === $numero ? 'active' : '' ?>">
                     Étage <?= $i ?>
                 </a>
             <?php endfor; ?>
         </nav>
+        <a href="controle.php?numero=<?= $numero ?>" class="etage-pill etage-control">
+         ⚙️ Contrôles
+        </a>
     </div>
 </header>
 
