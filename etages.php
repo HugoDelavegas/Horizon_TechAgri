@@ -77,7 +77,7 @@ function formatNumber($value, int $decimals = 1): string
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étage <?= h($numero) ?> — <?= h($noms_etages[$numero]) ?> - SpaceFarm</title>
+    <title>Étage <?= h($numero) ?> - <?= h($noms_etages[$numero]) ?> - SpaceFarm</title>
     <link rel="stylesheet" href="plantes.css">
 </head>
 

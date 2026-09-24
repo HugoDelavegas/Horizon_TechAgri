@@ -29,7 +29,7 @@ function h($value): string
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maladies — SpaceFarm</title>
+    <title>Maladies - SpaceFarm</title>
     <link rel="stylesheet" href="plantes.css">
 </head>
 
@@ -83,7 +83,7 @@ function h($value): string
                     </div>
 
                     <div class="details" style="grid-template-columns: 1fr;">
-                        
+
                         <?php if (!empty($maladie['plantes_liees'])): ?>
                             <div class="scientific">
                                 Plantes concernées : <?= h($maladie['plantes_liees']) ?>
